@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.tqs_lab1.com.TqsStackTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in com.tqs_lab1.com.TqsStackTest
