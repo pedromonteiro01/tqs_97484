@@ -52,7 +52,7 @@ public class SetOfNaturalsTest {
 
         // must fail with exception
         assertThrows(IllegalArgumentException.class, () -> setA.add(elems));
-        assertThrows(IllegalArgumentException.class, () -> setA.add(new int[] { 1, 2 }));
+        assertThrows(IllegalArgumentException.class, () -> setA.add(new int[] { 10}));
         assertThrows(IllegalArgumentException.class, () -> setA.add(new int[] { 0 }));
     }
 
