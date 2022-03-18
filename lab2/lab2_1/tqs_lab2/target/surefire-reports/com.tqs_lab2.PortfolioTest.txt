@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.tqs_lab2.PortfolioTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.244 s <<< FAILURE! - in com.tqs_lab2.PortfolioTest
-testGetTotalValue  Time elapsed: 0.241 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.313 s <<< FAILURE! - in com.tqs_lab2.PortfolioTest
+testGetTotalValue  Time elapsed: 0.306 s  <<< ERROR!
 java.lang.NullPointerException
 	at com.tqs_lab2.PortfolioTest.testGetTotalValue(PortfolioTest.java:26)
 

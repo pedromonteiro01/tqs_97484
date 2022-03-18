@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class PortfolioTest {
+class StocksPortfolioTest {
 
     @Mock
     StockmarketService stockService;

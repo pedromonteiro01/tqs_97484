@@ -12,14 +12,14 @@ public class StocksPortfolio{
    }
 
    public void addStock(Stock stock){
-      stocks.add(stock);
+      this.stocks.add(stock);
    }
 
    public double getTotalValue(){
       double marketValue = 0.0;
       
-      for(Stock stock : stocks){
-         marketValue += stockService.lookUpPrice(stock.getLabel()) * stock.getQuantity();
+      for(Stock stock : this.stocks){
+         marketValue += this.stockService.lookUpPrice(stock.getLabel()) * stock.getQuantity();
       }
       return marketValue;
    }
