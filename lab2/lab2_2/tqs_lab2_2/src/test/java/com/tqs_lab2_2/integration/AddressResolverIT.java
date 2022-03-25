@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.tqs_lab2_2.Address;
 import com.tqs_lab2_2.AddressResolver;
-import com.tqs_lab2_2.ISimpleHttpClient;
 import com.tqs_lab2_2.TqsHttpClient;
 
 import static org.hamcrest.core.Is.is;
@@ -30,7 +29,6 @@ public class AddressResolverIT {
 
     void testBadCoordinates(){
         assertThrows(IndexOutOfBoundsException.class, () -> addrResolver.findAddressForLocation(-91, -8.656688));
-
     }
     
 }
