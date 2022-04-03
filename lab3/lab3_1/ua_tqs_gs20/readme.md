@@ -34,8 +34,8 @@ d) What is the role of the file “application-integrationtest.properties”? In
 
 e) the sample project demonstrates three test strategies to assess an API (C, D and E)developed with SpringBoot. Which are the main/key differences?
 - C:
-    - MockMvc provides an entry point to server-side testing. MockMvc provides an expressive API too, in which methods chaining is expected.
+    - test the controllers using mocks of the required services (through an MockMvc instance)
 - D:
-    - 
+    - integration test, using all components and requiring a real database but still using MockMvc
 - E:
-    - 
+    - similar to D, but this one uses a real HTTP Client, TestRestTemplate

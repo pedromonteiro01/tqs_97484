@@ -1,4 +1,4 @@
-package com.tqs_lab3_2;
+package com.tqs_lab3_2.data;
 
 import java.util.Objects;
 

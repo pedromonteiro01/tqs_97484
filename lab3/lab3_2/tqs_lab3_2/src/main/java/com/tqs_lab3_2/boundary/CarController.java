@@ -1,10 +1,15 @@
-package com.tqs_lab3_2;
+package com.tqs_lab3_2.boundary;
 
 import java.util.List;
 
+import com.tqs_lab3_2.data.Car;
+import com.tqs_lab3_2.service.CarManagerService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,19 +23,19 @@ public class CarController {
     @Autowired
     private CarManagerService carManagerService;
 
-    @PostMapping("/cars")
+    @PostMapping("/car")
     public ResponseEntity<Car> createCar(@RequestBody Car car) {
-        return null;
+        return new ResponseEntity<Car>(carManagerService.save(car), HttpStatus.CREATED);
     }
 
     @GetMapping("/all-cars")
     public List<Car> getAllCars(){
-        return null;
+        return carManagerService.getAllCars();
     }
 
-    @GetMapping("/car-by-id")
-    public ResponseEntity<Car> getCarById(@RequestParam(name = "carId") Long carId) {
-        return null;
+    @GetMapping("/car/{carId}")
+    public ResponseEntity<Car> getCarById(@PathVariable Long carId) {
+        return ResponseEntity.of(carManagerService.getCarDetails(carId));
     }
     
 }
