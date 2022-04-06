@@ -1,17 +1,25 @@
-package com.tqs_lab4_1;
-
-import java.util.logging.Logger;
+package com.tqs_lab4_2;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
-class HelloWorldChromeJupiterTest {
+/**
+ * Unit test for simple App.
+ */
+class AppTest {
+    /**
+     * Rigorous Test.
+     */
+    //@Test
+    //void testApp() {
+    //    assertEquals(1, 1);
+    //}
 
     private WebDriver driver;
 
@@ -23,18 +31,16 @@ class HelloWorldChromeJupiterTest {
     @Test
     void test() {
         // Exercise
-        String sutUrl = "https://www.ua.pt/";
+        String sutUrl = "https://blazedemo.com/";
         driver.get(sutUrl);
         String title = driver.getTitle();
-        //log.debug("The title of {} is {}", sutUrl, title);
 
         // Verify
-        assertThat(title).isEqualTo("Homepage - Universidade de Aveiro");
+        assertThat(title).isEqualTo("BlazeDemo");
     }
 
     @AfterEach
     void teardown() {
         driver.quit();
     }
-
 }
