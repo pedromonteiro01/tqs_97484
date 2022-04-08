@@ -74,13 +74,13 @@ class ChromeTest {
     @FindBy(id="state")
     private WebElement state;
 
-    @FindBy(css=".control-group:nth-child(2) > .controls")
+    @FindBy(css="form")
     private WebElement btn6;
 
     @FindBy(id="zipCode")
     private WebElement zipCode;
 
-    @FindBy(css="form")
+    @FindBy(css=".control-group:nth-child(2) > .controls")
     private WebElement btn7;
 
     @FindBy(css=".btn-primary")
@@ -115,10 +115,10 @@ class ChromeTest {
         city.click();
         city.sendKeys("Guarda");
         btn5.click();
+        zipCode.click();
         state.click();
         state.sendKeys("idk");
         btn6.click();
-        zipCode.click();
         zipCode.sendKeys("6300-255");
         btn7.click();
         btn8.click();
