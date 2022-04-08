@@ -18,23 +18,24 @@ public class BookSearchSteps {
     Library library = new Library();
 	List<Book> result = new ArrayList<>();
 
+    //https://github.com/cucumber/cucumber-expressions#readme
     //https://stackoverflow.com/questions/40163721/date-object-in-cucumber
     @ParameterType("([0-9]{2})-([0-9]{2})-([0-9]{4})")
-    public LocalDateTime iso8601Date(String month, String day, String year){
+    public LocalDateTime date(String month, String day, String year){
         return LocalDateTime.of(Integer.parseInt(month), Integer.parseInt(day), Integer.parseInt(year),0, 0);
     }
  
-	@Given("(a|another) book with the title {string}, written by {string}, published in {iso8601Date}")
-	public void addNewBook(final String title, final String author, final Date published) {
-        Date p = Date.from(published.toInstant());
+	@Given("(a|another) book with the title {string}, written by {string}, published in {date}")
+	public void addNewBook(final String title, final String author, final LocalDateTime published) {
+        Date p = Date.from(published.toInstant(ZoneOffset.UTC));
 		Book book = new Book(title, author, p);
 		library.addBook(book);
 	}
  
-	@When("the customer searches for books published between {iso8601Date} and {iso8601Date}")
-	public void setSearchParameters(final Date from, final Date to) {
-        Date p1 = Date.from(from.toInstant());
-        Date p2 = Date.from(to.toInstant());
+	@When("the customer searches for books published between {date} and {date}")
+	public void setSearchParameters(final LocalDateTime from, final LocalDateTime to) {
+        Date p1 = Date.from(from.toInstant(ZoneOffset.UTC));
+        Date p2 = Date.from(to.toInstant(ZoneOffset.UTC));
 		result = library.findBooks(p1, p2);
 	}
  
