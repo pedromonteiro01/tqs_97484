@@ -14,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BookSearchSteps {
     Library library = new Library();
 	List<Book> result = new ArrayList<>();
+	List<Book> authors = new ArrayList<>();
+	List<Book> categories = new ArrayList<>();
 
 	@ParameterType("([0-9]{4})-([0-9]{2})-([0-9]{2})")
     public LocalDateTime date(String year, String month, String day){
@@ -50,5 +52,22 @@ public class BookSearchSteps {
 	@Then("Book {int} should have the title {string}")
 	public void verifyBookAtPosition(final int position, final String title) {
         assertEquals(result.get(position - 1).getTitle(), title);
+	}
+
+	@When("the customer searches for books written by {string}")
+    public void searchForBooksWithTitle(String author) {
+        authors = library.findBooksByAuthor(author);
+		//for (Book b: authors)
+		//	System.out.println(b);
+    }
+
+	@Then("{int} book(s) written by {string} should have been found")
+	public void verifyAmountOfBooksFoundBy(final int booksFound, String author) {
+		assertEquals(authors.size(), booksFound);
+	}
+
+	@Then("Book {int} should have the title {string} and published in {date}")
+	public void verifyBooksByAuthorTitle(final int booksFound, String title, final LocalDateTime d) {
+		assertEquals(authors.get(booksFound - 1).getTitle(), title);
 	}
 }
