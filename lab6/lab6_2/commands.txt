@@ -1,4 +1,0 @@
-mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=tqs_lab6_2 \
-  -Dsonar.host.url=http://127.0.0.1:9000 \
-  -Dsonar.login=ae065b0656e8c70b2666ea9c514a25b541d6a41b
