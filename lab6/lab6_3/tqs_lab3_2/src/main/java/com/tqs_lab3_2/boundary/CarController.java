@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,7 +24,7 @@ public class CarController {
 
     @PostMapping("/car")
     public ResponseEntity<Car> createCar(@RequestBody Car car) {
-        return new ResponseEntity<Car>(carManagerService.save(car), HttpStatus.CREATED);
+        return new ResponseEntity<>(carManagerService.save(car), HttpStatus.CREATED);
     }
 
     @GetMapping("/all-cars")

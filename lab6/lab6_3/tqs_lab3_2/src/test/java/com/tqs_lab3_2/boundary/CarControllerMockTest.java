@@ -28,7 +28,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 
 @WebMvcTest
-public class CarControllerMockTest {
+class CarControllerMockTest {
     @Autowired
     private MockMvc mvcClient;
 
@@ -36,7 +36,7 @@ public class CarControllerMockTest {
     private CarManagerService carService;
 
     @Test
-    public void testCarCreate() throws IOException, Exception {
+    void testCarCreate() throws IOException, Exception {
         Car c1 = new Car("car1", "m1");
         when(carService.save(Mockito.any())).thenReturn(c1);
 
@@ -51,7 +51,7 @@ public class CarControllerMockTest {
     }
 
     @Test
-    public void testReturnArrayForManyCars() throws Exception {
+    void testReturnArrayForManyCars() throws Exception {
         Car c1 = new Car("car1", "m1");
         Car c2 = new Car("car2", "m2");
         Car c3 = new Car("car3", "m3");
@@ -74,7 +74,7 @@ public class CarControllerMockTest {
     }
 
     @Test
-    public void testReturnCarDetailsIfCarExists() throws Exception {
+    void testReturnCarDetailsIfCarExists() throws Exception {
         Car c1 = new Car("car1", "m1");
 
         when(carService.getCarDetails(Mockito.anyLong())).thenReturn(Optional.of(c1));
@@ -88,7 +88,7 @@ public class CarControllerMockTest {
     }
 
     @Test
-    public void testReturnForInvalidCar() throws Exception {
+    void testReturnForInvalidCar() throws Exception {
         when(carService.getCarDetails(Mockito.anyLong())).thenReturn(Optional.empty());
 
         mvcClient.perform(get("/api/car/25"))

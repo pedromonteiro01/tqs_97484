@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-public class CarManagerServiceTest {
+class CarManagerServiceTest {
 
     @Mock(lenient = true)
     private CarRepository carRepository;
@@ -33,7 +33,7 @@ public class CarManagerServiceTest {
     Car c3 = new Car("car3", "m3");
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         List<Car> allCars = Arrays.asList(c1, c2, c3);
 
         Mockito.when(carRepository.save(c1)).thenReturn(c1);
@@ -44,17 +44,17 @@ public class CarManagerServiceTest {
     }
 
     @Test
-    public void testReturnCar() {
+    void testReturnCar() {
         assertThat(carManagerService.save(c1).getModel()).isEqualTo("m1");
         Mockito.verify(carRepository, VerificationModeFactory.times(1)).save(c1);
     }
 
     @Test
-    public void testReturnAllCars() {
+    void testReturnAllCars() {
         List<Car> allCars = carManagerService.getAllCars();
 
         // check if size is equal to number of cars
-        assertThat(allCars.size()).isEqualTo(3);
+        assertThat(allCars).hasSize(3);
 
         assertThat(allCars.get(0).getModel()).isEqualTo("m1");
         assertThat(allCars.get(1).getModel()).isEqualTo("m2");
@@ -64,7 +64,7 @@ public class CarManagerServiceTest {
     }
 
     @Test
-    public void testCarNotExists() {
+    void testCarNotExists() {
         assertThat(carManagerService.getCarDetails(-1000L)).isEmpty();
         Mockito.verify(carRepository, VerificationModeFactory.times(1)).findByCarId(-1000L);
     }

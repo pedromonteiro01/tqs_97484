@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
 @DataJpaTest
-public class CarRepositoryTest {
+class CarRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
@@ -19,7 +19,7 @@ public class CarRepositoryTest {
     private CarRepository carRepository;
 
     @Test
-    public void testValidCarId() {
+    void testValidCarId() {
         Car c1 = new Car("car1", "model1");
         entityManager.persistAndFlush(c1);
 
@@ -29,13 +29,13 @@ public class CarRepositoryTest {
     }
 
     @Test
-    public void testInvalidCarId() {
+    void testInvalidCarId() {
         Car carDb = carRepository.findByCarId(100L);
         assertThat(carDb).isNull();
     }
 
     @Test
-    public void testAllCars() {
+    void testAllCars() {
         Car c1 = new Car("car1", "model1");
         Car c2 = new Car("car2", "model2");
         Car c3 = new Car("car3", "model3");
