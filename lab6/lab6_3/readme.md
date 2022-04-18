@@ -15,6 +15,9 @@ Code smells reported:
 - Remove this 'public' modifier.
 - Use assertThat(actual).hasSize(expected) instead.
 
+Example of code smells reported:
+![Code Smells](./prints/errors.png)
+
 After solving these code smells: 
 ![Problems Solved](./prints/solve.png)
 
