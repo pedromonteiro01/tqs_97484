@@ -1,4 +1,4 @@
-package com.tqs_lab7_1;
+package com.restassured;
 
 import org.junit.jupiter.api.Test;
 
